@@ -1,3 +1,5 @@
+package cucurrency.chapter2.thread_objects;
+
 public class Interrupts {
     // 스레드 종료 시키기
     public static void main(String[] args) {

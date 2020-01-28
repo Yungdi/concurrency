@@ -1,3 +1,5 @@
+package cucurrency.chapter2.thread_objects;
+
 public class SleepMessage {
     public static void main(String[] args) {
         Runnable runnable = () -> {

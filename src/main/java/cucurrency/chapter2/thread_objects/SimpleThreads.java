@@ -1,3 +1,5 @@
+package cucurrency.chapter2.thread_objects;
+
 public class SimpleThreads {
 
     static void threadMessage(String message) {

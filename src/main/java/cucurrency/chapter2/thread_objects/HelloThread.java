@@ -1,3 +1,5 @@
+package cucurrency.chapter2.thread_objects;
+
 public class HelloThread extends Thread {
     @Override
     public void run() {

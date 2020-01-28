@@ -1,3 +1,5 @@
+package cucurrency.chapter3.syncronization.thread_reference;
+
 public class Counter {
     private int c = 0;
 
