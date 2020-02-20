@@ -1,6 +1,6 @@
 package basic.generic;
 
-public class Student extends Person{
+public class Student extends Person {
     private String studentId;
 
     public String getStudentId() {

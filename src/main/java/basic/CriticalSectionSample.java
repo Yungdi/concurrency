@@ -13,7 +13,7 @@ public class CriticalSectionSample {
 
     void test1() {
 
-        synchronized (this) /* 공유객체 즉 락의 대상 지정 */{
+        synchronized (this) /* 공유객체 즉 락의 대상 지정 */ {
 
         }
     }

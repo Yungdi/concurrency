@@ -11,7 +11,7 @@ public class IterationRunnable implements Runnable {
 
     @Override
     public void run() {
-        for (long j = 0; j < 100_000_000_000L; j++);
+        for (long j = 0; j < 100_000_000_000L; j++) ;
         System.out.println(Thread.currentThread().getName() + " is end");
 //        for (int i = 1; i <= ITERATION_COUNT; i++) {
 //            System.out.println(Thread.currentThread().getName() + ": " + i);

@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class PerformanceTest {
-        public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         int availableProcessors = Runtime.getRuntime().availableProcessors() / 4;
         System.out.println(availableProcessors);
         long startTime = System.currentTimeMillis();

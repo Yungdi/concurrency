@@ -25,7 +25,7 @@ public class Safelock {
                 myLock = lock.tryLock();
                 yourLock = bower.lock.tryLock();
             } finally {
-                if (! (myLock && yourLock)) {
+                if (!(myLock && yourLock)) {
                     if (myLock) {
                         System.out.println("It fails to obtain all locks. " + getName() + " releases lock");
                         lock.unlock();
@@ -77,10 +77,11 @@ public class Safelock {
 
         public void run() {
             Random random = new Random();
-            for (;;) {
+            for (; ; ) {
                 try {
                     Thread.sleep(random.nextInt(10));
-                } catch (InterruptedException e) {}
+                } catch (InterruptedException e) {
+                }
                 bowee.bow(bower);
             }
         }

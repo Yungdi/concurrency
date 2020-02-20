@@ -7,6 +7,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class CompletionHandlerSample {
+
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newFixedThreadPool(2);
         CompletionHandler<Integer, Void> completionHandler = new CompletionHandler<Integer, Void>() {

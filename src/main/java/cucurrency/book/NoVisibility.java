@@ -1,5 +1,9 @@
 package cucurrency.book;
 
+import java.util.Collections;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class NoVisibility {
     private static boolean ready;
     private static int number;
@@ -17,5 +21,6 @@ public class NoVisibility {
         new ReaderThread().start();
         number = 42;
         ready = true;
+        ExecutorService executorService = Executors.newCachedThreadPool();
     }
 }
