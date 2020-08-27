@@ -3,7 +3,8 @@
     * Future: 비동기 실행의 결과를 나타냄
     * RunnableFuture: ?
     * FutureTask: Future 의 기본 구현
-    latch 나 barrier와 유사하게 동기화 수단으로 사용될 수 있음? https://stackoverflow.com/questions/4956822/whats-the-difference-between-future-and-futuretask-in-java 
+      latch 나 barrier와 유사하게 동기화 수단으로 사용될 수 있음? 
+      https://stackoverflow.com/questions/4956822/whats-the-difference-between-future-and-futuretask-in-java 
     * Executor: task 를 실행함. 실행과 작업을 분리했음
       ```java
       // 실행과 작업이 분리되지 않음
@@ -14,9 +15,9 @@
       executor.execute(() -> System.out.println("hello world"));
       ```
     * ExecutorService: 종료를 관리하는 메소드(shutDown, shutDownNow, awaitTermination...)와 
-    하나 이상의 비동기 작업의 진행 상황을 추적할 수 있는 Future 를 만들어내는 메소드(submit, invoke, invokeAll...)를 제공한다. 
+      하나 이상의 비동기 작업의 진행 상황을 추적할 수 있는 Future 를 만들어내는 메소드(submit, invoke, invokeAll...)를 제공한다. 
     * AbstractExecutorService: ExecutorService 의 구현(submit, invoke, invokeAll)을 제공한다. 
-    submit, invoke, invokeAll 은 RunnableFuture 를 반환한다.
+      submit, invoke, invokeAll 은 RunnableFuture 를 반환한다.
   - 중단 및 종료
     * 자바에는 스레드가 작업을 실행하고 있을 때 강제로 멈추도록 하는 방법이 없다
     * 인터럽트는 특정 스레드에게 작업을 멈춰달라고 요청하는 것이다
@@ -42,4 +43,8 @@
         * 위와 같은 방식으로 작업 종료할 때 작업 내부에 블로킹 연산이 있다면 취소 요청이 들어왔는 지 확인하지 못할 수 있다
         * 블로킹 API 중 일부는 인터럽트할 수 있다
         * 인터럽트는 실행 중이던 작업을 멈추고 다른 일을 할 수 있도록 해야한다고 신호를 보내는 것과 같다
-        * 모든 스레드는 인터럽트 상태를 갖고 
+        * 모든 스레드는 인터럽트 상태를 갖고 있다
+        * static interrupted 는 인터럽트 상태를 해제하고 해제하기 이전의 값이 무엇인지 알려준다
+        * wait, sleep 은 인터럽트가 걸리면 인터럽트 상태를 해제하면서 예외를 던진다
+        * 스레드가 블록되어 있지 않은 실행 상태에서 인터럽트가 걸린다면 먼저 인터럽트 상태 변수가 설정되긴 하지만
+          인터럽트가 걸렸는 지 확인하고 대응하는 일은 스레드가 알아서 해야한다
