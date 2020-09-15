@@ -1,16 +1,17 @@
 package basic.future.complete;
 
-import basic.IterationRunnable;
-
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class CompletableFutureExample {
-    public static void main(String[] args) throws InterruptedException {
-        CompletableFuture.runAsync(new IterationRunnable(10))
-                .thenCompose(aVoid -> CompletableFuture.runAsync(new IterationRunnable(5)))
-                .thenAcceptAsync(aVoid -> System.out.println("complete"));
-        System.out.println("hello world");
-        TimeUnit.SECONDS.sleep(30L);
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        AtomicInteger a = new AtomicInteger(10);
+        CompletableFuture<Void> async1 = CompletableFuture.supplyAsync(a::incrementAndGet)
+                .thenAcceptAsync(System.out::println);
+        CompletableFuture<Void> async2 = CompletableFuture.supplyAsync(a::incrementAndGet)
+                .thenAcceptAsync(System.out::println);
+        CompletableFuture.allOf(async1, async2)
+                .get();
     }
 }
