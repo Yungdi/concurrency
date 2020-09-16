@@ -17,6 +17,7 @@ public class InterruptionEx {
         TimeUnit.SECONDS.sleep(10L);
         System.out.println(thread.isInterrupted());
         thread.interrupt();
+
         System.out.println(thread.isInterrupted());
     }
 }
