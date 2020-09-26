@@ -18,6 +18,8 @@
       하나 이상의 비동기 작업의 진행 상황을 추적할 수 있는 Future 를 만들어내는 메소드(submit, invoke, invokeAll...)를 제공한다. 
     * AbstractExecutorService: ExecutorService 의 구현(submit, invoke, invokeAll)을 제공한다. 
       submit, invoke, invokeAll 은 RunnableFuture 를 반환한다.
+    * ThreadPoolExecutor:
+    * ThreadFactory: 스레드 생성
   - 중단 및 종료
     * 자바에는 스레드가 작업을 실행하고 있을 때 강제로 멈추도록 하는 방법이 없다
     * 인터럽트는 특정 스레드에게 작업을 멈춰달라고 요청하는 것이다
